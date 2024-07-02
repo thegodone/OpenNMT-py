@@ -7,7 +7,7 @@ This repo complements the "[Predicting Enzymatic Reactions with a Molecular Tran
 
 ### Specific versions used:
 - Python: 3.6.10
-- Torch: 1.5.1
+- Torch: 1.13.1
 - TorchText: 0.6.1
 - OpenNMT: 1.1.1
 - RDKit: 2017.09.1
