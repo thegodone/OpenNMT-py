@@ -18,7 +18,6 @@ from onmt.utils.misc import tile, set_random_seed, report_matrix
 from onmt.utils.alignment import extract_alignment, build_align_pharaoh
 from onmt.modules.copy_generator import collapse_copy_scores
 
-
 def build_translator(opt, report_score=True, logger=None, out_file=None, log_probs_out_file=None):
     if out_file is None:
         out_file = codecs.open(opt.output, 'w+', 'utf-8')
@@ -147,7 +146,8 @@ class Translator(object):
         self._tgt_bos_idx = self._tgt_vocab.stoi[tgt_field.init_token]
         self._tgt_unk_idx = self._tgt_vocab.stoi[tgt_field.unk_token]
         self._tgt_vocab_len = len(self._tgt_vocab)
-
+        print(gpu)
+        gpu = 0
         self._gpu = gpu
         self._use_cuda = gpu > -1
         self._dev = torch.device("cuda", self._gpu) \
