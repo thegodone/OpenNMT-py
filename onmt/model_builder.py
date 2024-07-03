@@ -161,6 +161,7 @@ def build_base_model(model_opt, fields, gpu, checkpoint=None, gpu_id=None):
         tgt_emb.word_lut.weight = src_emb.word_lut.weight
 
     decoder = build_decoder(model_opt, tgt_emb)
+    print('build_base_model:',gpu, gpu_id, opt)
 
     # Build NMTModel(= encoder + decoder).
     if gpu and gpu_id is not None:
@@ -239,6 +240,7 @@ def build_base_model(model_opt, fields, gpu, checkpoint=None, gpu_id=None):
 
 def build_model(model_opt, opt, fields, checkpoint):
     logger.info('Building model...')
-    model = build_base_model(model_opt, fields, use_gpu(opt), checkpoint)
+    print('build model:',opt)
+    model = build_base_model(model_opt, fields, use_gpu(opt), checkpoint, opt.gpuid)
     logger.info(model)
     return model
